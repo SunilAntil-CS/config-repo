@@ -1,3 +1,4 @@
+# catalog-service.yml in your Git-backed config repo
 server:
   port: 9001
   tomcat:
@@ -6,13 +7,16 @@ server:
     threads:
       max: 50
       min-spare: 5
+
+spring:
   datasource:
-    username: postgres
-    #password: password
     url: jdbc:postgresql://localhost:5432/polardb_catalog
+    username: postgres
+    password: <your-db-password>           # ← don’t forget this!
     hikari:
-      connection-timeout: 2000 #ms
+      connection-timeout: 2000
       maximum-pool-size: 5
+
   jpa:
     hibernate:
       ddl-auto: validate
@@ -24,4 +28,4 @@ management:
         include: refresh
 
 polar:
-  greeting: Welcome to the local book catalog!
+  greeting: "Welcome to the local book catalog!"
